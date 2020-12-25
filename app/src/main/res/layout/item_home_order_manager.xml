@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.main.ItemHomeOrderBean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white">
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:includeFontPadding="false"
+            android:text="@string/str_order_manager"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="28dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:text="@string/str_all_order"
+            android:onClick="@{()->item.onClickOrder(tvOrder,0)}"
+            app:layout_constraintTop_toTopOf="@id/tv_order"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="12dp"
+            android:src="@mipmap/ic_more"
+            app:tint="@color/black"
+            app:layout_constraintTop_toTopOf="@id/tv_order"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_dzf"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{item.strCountPay}"
+            android:textSize="20sp"
+            android:textColor="@color/check"
+            android:includeFontPadding="false"
+            android:layout_marginTop="10dp"
+            android:paddingTop="8dp"
+            android:onClick="@{()->item.onClickOrder(tvOrder,9)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_order"
+            app:layout_constraintEnd_toStartOf="@id/tv_dfh"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_dfh"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:gravity="center"
+            android:text="@{item.strCountSend}"
+            android:textSize="20sp"
+            android:textColor="@color/check"
+            android:includeFontPadding="false"
+            android:onClick="@{()->item.onClickOrder(tvOrder,1)}"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf"
+            app:layout_constraintStart_toEndOf="@id/tv_dzf"
+            app:layout_constraintEnd_toStartOf="@id/tv_dfwk"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_dfwk"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="@{item.strCountWK}"
+            android:textSize="20sp"
+            android:textColor="@color/check"
+            android:includeFontPadding="false"
+            android:onClick="@{()->item.onClickOrder(tvOrder,2)}"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf"
+            app:layout_constraintStart_toEndOf="@id/tv_dfh"
+            app:layout_constraintEnd_toStartOf="@id/tv_dtk"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_dtk"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="@{item.strCountRefund}"
+            android:textSize="20sp"
+            android:textColor="@color/check"
+            android:includeFontPadding="false"
+            android:onClick="@{()->item.onClickOrder(tvOrder,6)}"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf"
+            app:layout_constraintStart_toEndOf="@id/tv_dfwk"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_dzf_tip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/str_toPay"
+            android:paddingTop="13dp"
+            android:layout_marginBottom="16dp"
+            android:includeFontPadding="false"
+            android:onClick="@{()->item.onClickOrder(tvOrder,9)}"
+            app:layout_constraintStart_toStartOf="@id/tv_dzf"
+            app:layout_constraintEnd_toEndOf="@id/tv_dzf"
+            app:layout_constraintTop_toBottomOf="@id/tv_dzf"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="13dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/str_toSend"
+            android:includeFontPadding="false"
+            android:onClick="@{()->item.onClickOrder(tvOrder,1)}"
+            app:layout_constraintStart_toStartOf="@id/tv_dfh"
+            app:layout_constraintEnd_toEndOf="@id/tv_dfh"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf_tip"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="13dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/str_toPayWK"
+            android:includeFontPadding="false"
+            android:onClick="@{()->item.onClickOrder(tvOrder,2)}"
+            app:layout_constraintStart_toStartOf="@id/tv_dfwk"
+            app:layout_constraintEnd_toEndOf="@id/tv_dfwk"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf_tip"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="13dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/str_toRefund"
+            android:includeFontPadding="false"
+            android:onClick="@{()->item.onClickOrder(tvOrder,6)}"
+            app:layout_constraintStart_toStartOf="@id/tv_dtk"
+            app:layout_constraintEnd_toEndOf="@id/tv_dtk"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf_tip"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

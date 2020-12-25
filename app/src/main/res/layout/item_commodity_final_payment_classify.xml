@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.ItemFinalPaymentClassifyBean" />
+        <import type="android.view.View"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="182dp"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="18dp"
+            glideAll="@{item.strCommodityImg}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="22dp"
+            android:gravity="center"
+            tools:text="定金商品"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:text="@{item.strCommodityStatus}"
+            android:background="@drawable/shape_transparent_blue_bottom_5"
+            app:layout_constraintStart_toStartOf="@id/iv_img"
+            app:layout_constraintBottom_toBottomOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="@id/iv_img"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="威神V全新专辑威神V全新专辑威神V全新专辑威神V全新专辑"
+            android:text="@{item.strCommodityName}"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="5dp"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toEndOf="@id/iv_img"
+            app:layout_constraintTop_toTopOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_limit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="限购：6（不限购）"
+            android:text="@{item.strCommodityLimit}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintBottom_toTopOf="@id/tv_price"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="合并专题ID：123432"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toTopOf="@id/tv_limit"
+            app:layout_constraintStart_toStartOf="@id/tv_sole"
+            app:layout_constraintBottom_toBottomOf="@id/tv_limit"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="商品价格：￥299.0"
+            android:text="@{item.strCommodityPrice}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_limit"
+            app:layout_constraintBottom_toTopOf="@id/tv_shop_name"/>
+
+        <TextView
+            android:id="@+id/tv_sole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="销量：2343"
+            android:text="@{item.strCommoditySales}"
+            app:layout_constraintStart_toEndOf="@id/iv_img"
+            app:layout_constraintTop_toTopOf="@id/tv_price"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_shop_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="商家信息：元气小铺"
+            android:text="@{item.strShopName}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_price"
+            app:layout_constraintBottom_toTopOf="@id/tv_shop_id"/>
+
+        <TextView
+            android:id="@+id/tv_shop_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="商家ID：1234343"
+            android:text="@{item.strShopId}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintBottom_toBottomOf="@id/iv_img"/>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:padding="8dp"
+            android:src="@mipmap/ic_copy"
+            android:onClick="@{item::onClickCopyShop}"
+            app:layout_constraintStart_toEndOf="@id/tv_shop_id"
+            app:layout_constraintTop_toTopOf="@id/tv_shop_id"
+            app:layout_constraintBottom_toBottomOf="@id/tv_shop_id"/>
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+         <TextView
+             android:layout_width="94dp"
+             android:layout_height="22dp"
+             android:layout_marginEnd="12dp"
+             android:gravity="center"
+             android:text="新增尾款分类"
+             android:textSize="12sp"
+             android:textColor="@color/check"
+             android:onClick="@{item::onClickAdd}"
+             android:background="@drawable/shape_line_blue_5"
+             android:visibility="@{item.isAdd()?View.VISIBLE:View.GONE}"
+             app:layout_constraintTop_toBottomOf="@id/view_line"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="50dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="center"
+            android:text="@string/str_edit"
+            android:textSize="12sp"
+            android:textColor="@color/check"
+            android:onClick="@{item::onClickEdit}"
+            android:visibility="@{item.isAdd()?View.GONE:View.VISIBLE}"
+            android:background="@drawable/shape_line_blue_5"
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="@string/str_delete"
+            android:textSize="12sp"
+            android:textColor="@color/check"
+            android:onClick="@{item::onClickDelete}"
+            android:visibility="@{item.isAdd()?View.GONE:View.VISIBLE}"
+            android:background="@drawable/shape_line_blue_5"
+            app:layout_constraintTop_toTopOf="@id/tv_edit"
+            app:layout_constraintEnd_toStartOf="@id/tv_edit"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.order.ItemOrderDetailsCommodityBean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="196dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="44dp"
+            tools:text="订单号:yzy123456789/*"
+            android:text="@{item.strOrderNumber}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:padding="6dp"
+            android:src="@mipmap/ic_copy"
+            android:onClick="@{item::onClickCopy}"
+            app:layout_constraintStart_toEndOf="@id/tv_order_status"
+            app:layout_constraintTop_toTopOf="@id/tv_order_status"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_status"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            android:includeFontPadding="true"
+            tools:text="支付宝支付"
+            android:text="@{item.strPayStatus}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            android:layout_marginTop="75dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="23dp"
+            glideAll="@{item.strImg}"
+            app:layout_constraintStart_toStartOf="@id/tv_order_status"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_status"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/black"
+            tools:text="威神V全新专辑 V 一直娱独家首发"
+            android:text="@{item.strCommodityName}"
+            android:lines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_img"/>
+
+        <TextView
+            android:id="@+id/tv_classify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="分类：黄旭熙"
+            android:text="@{item.strCommodityClassify}"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintBottom_toTopOf="@id/tv_price"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="商品价格：￥299.0"
+            android:text="@{item.strCommodityPrice}"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintBottom_toBottomOf="@id/iv_img"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/black"
+            tools:text="下单数量：2"
+            android:text="@{item.strCommodityCount}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_price"
+            app:layout_constraintBottom_toBottomOf="@id/tv_price"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

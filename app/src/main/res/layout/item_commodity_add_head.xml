@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.ItemCommodityAddBean" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:includeFontPadding="false"
+            android:layout_weight="1"
+            tools:text="商品分类"
+            android:textColor="@color/black"
+            android:text="@{item.strTitle}"/>
+
+        <ImageView
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:padding="0.5dp"
+            glideHead="@{item.strImg}"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/shape_head_bg"/>
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="12dp"
+            android:src="@mipmap/ic_more"
+            android:visibility="@{item.visibleMoreButton}"/>
+
+    </LinearLayout>
+</layout>

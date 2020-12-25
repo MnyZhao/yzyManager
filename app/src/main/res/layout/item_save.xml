@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.subject.ItemSaveBean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/bg_fa">
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:layout_width="220dp"
+            android:layout_height="34dp"
+            android:text="@string/str_save"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:onClick="@{item::onClickSave}"
+            android:background="@drawable/shape_blue_bg_50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

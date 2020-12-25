@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.ItemCommodityAddImgBean" />
+        <import type="android.view.View"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            glideImg="@{item.path}"
+            android:onClick="@{item::onClickAdd}"
+            android:background="@mipmap/ic_img_add_vice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="8dp"
+            android:src="@mipmap/ic_delete_gray"
+            android:onClick="@{()->item.onClickDelete(ivImg)}"
+            android:visibility="gone"
+            visible="@{item.canDelete?View.VISIBLE:View.GONE}"
+            app:layout_constraintTop_toTopOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="@id/iv_img"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

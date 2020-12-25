@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.subject.SubjectBookViewModel" />
+        <import type="android.view.View"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/bg_fa">
+
+        <include layout="@layout/include_title_bar"
+            android:id="@+id/title_bar"
+            app:titleBar="@{viewModel.titleBar}" />
+
+        <View
+            android:id="@+id/view_search_bg"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="13dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_bar"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/view_search_et_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/shape_order_search_bg"
+            app:layout_constraintStart_toStartOf="@id/view_search_bg"
+            app:layout_constraintTop_toTopOf="@id/view_search_bg"
+            app:layout_constraintEnd_toEndOf="@id/view_search_bg"
+            app:layout_constraintBottom_toBottomOf="@id/view_search_bg"/>
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="34dp"
+            android:gravity="center_vertical|start"
+            android:hint="输入搜索内容"
+            android:text="@={viewModel.strSearchWord}"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:background="@null"
+            android:imeOptions="actionSearch"
+            app:layout_constraintStart_toStartOf="@id/view_search_line"
+            app:layout_constraintTop_toTopOf="@id/view_search_bg"
+            app:layout_constraintBottom_toBottomOf="@id/view_search_bg"
+            app:layout_constraintEnd_toEndOf="@id/view_search_et_bg"/>
+
+        <View
+            android:id="@+id/view_search_line"
+            android:layout_width="1dp"
+            android:layout_height="22dp"
+            android:background="#dcdcdc"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/tv_search_type"
+            app:layout_constraintTop_toTopOf="@id/view_search_bg"
+            app:layout_constraintBottom_toBottomOf="@id/view_search_bg"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_search_type"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:gravity="center"
+            tools:text="商品ID"
+            android:text="@{viewModel.strStatus}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:paddingEnd="16dp"
+            android:paddingStart="12dp"
+            android:onClick="@{viewModel::onClickStatusPop}"
+            app:layout_constraintStart_toStartOf="@id/view_search_et_bg"
+            app:layout_constraintTop_toTopOf="@id/view_search_bg"
+            app:layout_constraintBottom_toBottomOf="@id/view_search_bg"/>
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_switch_round_down"
+            app:layout_constraintTop_toTopOf="@id/tv_search_type"
+            app:layout_constraintEnd_toEndOf="@id/tv_search_type"
+            app:layout_constraintBottom_toBottomOf="@id/tv_search_type"/>
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="@string/str_search"
+            android:onClick="@{viewModel::onClickSearch}"
+            app:layout_constraintStart_toEndOf="@id/et_search"
+            app:layout_constraintTop_toTopOf="@id/view_search_bg"
+            app:layout_constraintBottom_toBottomOf="@id/view_search_bg"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/smart_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            finishSmart="@{viewModel.finishRefresh}"
+            isEnableLoadMore="@{viewModel.isLoadMore()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_search_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                adapter="@{viewModel.adapter}"/>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_selected"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="0dp"
+            android:gravity="center_vertical"
+            tools:text="已选中3个爱豆"
+            android:text="@{viewModel.strCountTip}"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:onClick="@{viewModel::onClickSelectPop}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/ic_switch_round_down"
+            app:tint="@color/check"
+            app:layout_constraintTop_toTopOf="@id/tv_selected"
+            app:layout_constraintEnd_toEndOf="@id/tv_selected"
+            app:layout_constraintBottom_toBottomOf="@id/tv_selected"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="54dp"
+            android:text="展开"
+            android:textColor="@color/check"
+            app:layout_constraintTop_toTopOf="@id/tv_selected"
+            app:layout_constraintEnd_toEndOf="@id/tv_selected"
+            app:layout_constraintBottom_toBottomOf="@id/tv_selected"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="#30333333"
+            visible="@{viewModel.isShowPop()?View.VISIBLE:View.GONE}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

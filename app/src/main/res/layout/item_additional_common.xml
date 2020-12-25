@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.ItemAdditionalBean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:includeFontPadding="false"
+            android:text="信息内容："
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="42dp"
+            android:includeFontPadding="false"
+            tools:text="身份信息"
+            android:text="@{item.strName}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/tv_title_name"
+            app:layout_constraintTop_toTopOf="@id/tv_title_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_title_name"/>
+
+        <ImageView
+            android:id="@+id/iv_select"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="12dp"
+            android:onClick="@{item::onClickSelect}"
+            tools:src="@drawable/ic_car_check"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_name"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_name"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_title_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_marginEnd="12dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:text="前端提示文字："
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tv_title_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_name"/>
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            tools:text="身份证号须与收件人姓名保持一致"
+            android:text="@{item.strHint}"
+            android:textColor="@color/black"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toEndOf="@id/tv_title_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_title_tip"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tip"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_tip"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:src="@mipmap/ic_label_line"
+            app:layout_constraintStart_toStartOf="@id/tv_title_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_tip"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            tools:text="@string/str_mandatory"
+            android:text="@{item.isMandatory?@string/str_mandatory:@string/str_mandatory_not}"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/iv_tip"
+            app:layout_constraintBottom_toBottomOf="@id/iv_tip"
+            app:layout_constraintStart_toEndOf="@id/iv_tip"/>
+
+        <ImageView
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_marginStart="49dp"
+            android:src="@mipmap/ic_label_line"
+            app:layout_constraintTop_toTopOf="@id/iv_tip"
+            app:layout_constraintBottom_toBottomOf="@id/iv_tip"
+            app:layout_constraintStart_toEndOf="@id/iv_tip"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="67dp"
+            tools:text="@string/str_edit_can"
+            android:text="@{item.isEdit()?@string/str_edit_can:@string/str_edit_can_not}"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/iv_tip"
+            app:layout_constraintBottom_toBottomOf="@id/iv_tip"
+            app:layout_constraintStart_toEndOf="@id/iv_tip"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ad-project</title>
+    <script src="./js/jquery3.2.1.js"></script>
+    <link href="./css/bootstrap3.3.5.css" rel="stylesheet">
+    <link href="./css/summernote0.8.9.css" rel="stylesheet">
+    <script src="./js/bootstrap3.3.5.js"></script>
+    <script src="./js/summernote0.8.9.js"></script>
+    <script src="./js/summernote-zh-CN.min.js"></script>
+		<style type="text/css">
+			.note-popover .popover-content, .panel-heading.note-toolbar{
+				/* position: relative !important; */
+			}
+			.panel-default{
+				/* position: fixed !important; */
+				/* bottom: auto !important; */
+				/* top: 0; */
+				/* z-index: 11; */
+			}
+			.note-statusbar{
+				display: none;
+			}
+			.note-editor.note-frame{
+				/* margin-top: 80%; */
+				/* min-height: 40%; */
+				padding-bottom: 100px;
+				/* position: relative; */
+			}
+			.note-editor.note-frame .note-editing-area .note-editable{
+				/* padding-top: 0;
+				max-height: 200px;
+				min-height: 200px;
+				overflow-y: auto; */
+			}
+			.dropdown-menu{
+				/* top: auto; */
+				/* bottom: 0; */
+			}
+		</style>
+</head>
+
+<body>
+		<!-- <div class="seth">111</div> -->
+    <div style="">
+        <textarea id="summernote" placeholder="填写内容" class="summernote"></textarea>
+    </div>
+</body>
+<script>
+    // test()
+    function test() {
+        this.markupStr = $('#summernote').summernote('code')
+        console.log(this.markupStr)
+        if ($('#summernote').summernote('isEmpty')) {
+            var x = ''
+            return x
+        }
+        var x = this.ucode(this.markupStr)
+        return x
+    }
+    // appImg()
+    function appImg(files) {
+        $('.summernote').summernote({
+            onImageUpload: function (files, editor, welEditable) {//图片上传
+            }
+        });
+        $("#summernote").summernote('insertImage', files);
+    }
+    function ucode(str) {
+        let temp;
+        let i = 0;
+        let r = '';
+        for (let val of str) {
+            temp = val.codePointAt(0).toString(16);
+            while (temp.length < 4)
+                temp = '0' + temp;
+            r += '\\u' + temp;
+        };
+        return r;
+    }
+    function getSummernote(data) {
+        var x = decodeUnicode(data)
+        $('#summernote').summernote('code', x)
+    }
+    function decodeUnicode(str) {
+        str = str.replace(/\\/g, "%"); return unescape(str);
+    }
+		var _this = this
+		$('.seth').on('click', function (){
+			_this.setH(500)
+		})
+		function setH(h){
+			$('.note-editable').css('height', h + 'px')
+		}
+    setHeight()
+    function setHeight(hei, usKey, token, app, version, overseas) {
+        // hei = 660
+        // usKey = 'C697398175F0AC58599E7CBB598BEA6F32283B649CFB8881'
+        // token = 'e6dd6636bb1d3fa5b34633db52badc4b'
+        var height = parseInt(hei) - 111
+				console.log(height)
+        var markupStr = ''
+        $('#summernote').summernote({
+            height: height,    //设置高度
+            toolbar: [      //自定义工具栏
+                ['color', ['color']],
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['para', ['ul', 'ol', 'paragraph', 'height', 'hr']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ],
+            tabsize: 2,
+            lang: 'zh-CN',
+            callbacks: {     // 回调函数
+                // 图片上传
+                onImageUpload: function (files) {
+                    console.log(files[0])
+                    var formData = new FormData();
+                    formData.append('file', files[0]);
+                    formData.append('usKey', usKey);
+                    formData.append('version', version);
+                    formData.append('overseas', overseas);
+                    formData.append('app', app);
+                    formData.append('token', token);
+                    $.ajax({
+                        type: 'POST',
+                        url: "http://pay.withfans.com/phonemanage/product/uploadPicture",
+                        data: formData,
+                        processData: false, //很重要，告诉jq不要对data数据进行处理
+                        contentType: false,
+                        success: function (data) {
+                            console.log(data)
+                            $("#summernote").summernote('insertImage', data.imageUrl);
+                        },
+                        error: function () {
+                            $.toast("发送失败", "text")
+                        }
+                    });
+
+                },
+                //清除word复制的格式
+                onPaste: function (ne) {
+                    var bufferText = ((ne.originalEvent || ne).clipboardData || window.clipboardData).getData('Text/plain');
+                    ne.preventDefault ? ne.preventDefault() : (ne.returnValue = false);
+                    setTimeout(function () {
+                        document.execCommand("insertText", false, bufferText);
+                    }, 10);
+                }
+            }
+        });
+    }
+	$(function (){
+		$('.note-toolbar,.panel-heading').append('<div class="note-btn-group btn-group preview" style="background: #fff; padding: 5px 10px; font-size: 12px; line-height: 1.5; border-radius: 3px; border: 1px solid #ccc;">预览</div>')
+		var _this = this
+		$('.preview').on('click', function (){
+			_this.markupStr = $('#summernote').summernote('code')
+			console.log(_this.markupStr)
+		})
+	})
+</script>
+</html>

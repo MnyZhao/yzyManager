@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.CommodityManagerViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_fa">
+
+        <include layout="@layout/include_title_bar"
+            android:id="@+id/title_bar"
+            app:titleBar="@{viewModel.titleBar}"/>
+
+        <LinearLayout
+            android:id="@+id/ll_filter"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center|end"
+                android:paddingEnd="5dp"
+                android:paddingStart="7dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                tools:text="全部类型"
+                android:text="@{viewModel.strFilterType}"/>
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:layout_marginEnd="20dp"
+                android:src="@mipmap/ic_down"/>
+
+            <TextView
+                android:id="@+id/tv_classify"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingStart="5dp"
+                android:paddingEnd="7dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                tools:text="全部商品"
+                android:text="@{viewModel.strFilterCommodity}"/>
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@mipmap/ic_down"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toTopOf="@id/tv_status"
+                app:layout_constraintStart_toEndOf="@id/tv_classify"
+                app:layout_constraintBottom_toBottomOf="@id/tv_status"/>
+
+            <TextView
+                android:id="@+id/tv_identity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingStart="5dp"
+                android:paddingEnd="7dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                tools:text="身份限购"
+                android:text="@{viewModel.strFilterIdentity}"/>
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@mipmap/ic_down"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toTopOf="@id/tv_status"
+                app:layout_constraintStart_toEndOf="@id/tv_identity"
+                app:layout_constraintBottom_toBottomOf="@id/tv_status"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_filter"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/smart_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="1dp"
+            finishSmart="@{viewModel.finishRefresh}"
+            isEnableLoadMore="@{viewModel.isLoadMore()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                adapter="@{viewModel.adapter}"/>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <View
+            android:id="@+id/view_pop_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#40000000"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/smart_layout"
+            app:layout_constraintTop_toTopOf="@id/smart_layout"
+            app:layout_constraintEnd_toEndOf="@id/smart_layout"
+            app:layout_constraintBottom_toBottomOf="@id/smart_layout"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

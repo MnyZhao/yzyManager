@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.idolmedia.yzymanager">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"  android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" android:required="false"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".base.BaseApplication">
+        <activity android:name=".view.StartActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MainActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".view.login.LoginActivity" />
+        <activity android:name=".view.subject.SubjectManagerActivity" />
+        <activity android:name=".view.subject.SubjectEditActivity" />
+        <activity android:name=".view.subject.SubjectLabelActivity" />
+        <activity android:name=".view.order.OrderManagerActivity" />
+        <activity android:name=".view.order.OrderDetailsActivity" />
+        <activity android:name=".view.order.OrderDetailsListActivity" />
+        <activity android:name=".view.subject.SubjectCommodityActivity" />
+        <activity android:name=".view.commodity.CommodityManagerActivity" />
+        <activity android:name=".view.commodity.CommodityAdjustInventoryActivity" />
+        <activity android:name=".view.commodity.CommodityAdjustLimitActivity" />
+        <activity android:name=".view.search.SearchCommodityActivity" />
+        <activity android:name=".view.commodity.CommodityFinalPaymentActivity" />
+        <activity android:name=".view.commodity.CommodityProjectScheduleActivity" />
+        <activity android:name=".view.commodity.CommodityAddActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".view.commodity.CommodityAddMemberStatusActivity" />
+        <activity android:name=".view.commodity.CommoditySpecificationAddActivity" />
+        <activity android:name=".view.commodity.CommodityAddClassifyActivity" />
+        <activity android:name=".view.commodity.CommodityAddAfterSalesServiceActivity" />
+        <activity android:name=".view.commodity.CommodityAddClassifyFirstActivity" />
+        <activity android:name=".view.commodity.CommodityAddIdentityLimitActivity" />
+        <activity android:name=".view.commodity.CommodityAddActivityTimeActivity" />
+        <activity android:name=".view.commodity.CommodityAddAreaLimitActivity" />
+        <activity android:name=".view.freight.FreightListActivity" />
+        <activity android:name=".view.freight.FreightAddActivity" />
+        <activity android:name=".view.additional.AdditionalListActivity" />
+        <activity android:name=".view.additional.AdditionalAddActivity" />
+        <activity android:name=".view.commodity.CommodityAddSellerNoticeActivity" />
+        <activity android:name=".view.commodity.CommoditySpecificationActivity" />
+        <activity android:name=".view.freight.FreightAddSpecialActivity" />
+        <activity android:name=".view.freight.FreightAddressActivity" />
+        <activity android:name=".view.commodity.CommodityPurchaseNotesActivity" />
+        <activity android:name=".view.ido.IdoAssociatedActivity" />
+        <activity android:name=".view.commodity.PurchaseNotesListActivity" />
+        <activity android:name=".view.commodity.CommodityDetailsEditActivity" />
+        <activity android:name=".view.WebActivity" />
+        <activity android:name=".view.commodity.CommodityManagerAuditMerchantActivity" />
+        <activity android:name=".view.commodity.CommodityManagerAuditActivity" />
+        <activity android:name=".view.commodity.CommodityRefundActivity" />
+        <activity android:name=".view.commodity.CommodityEditActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".view.additional.AdditionalCommodityActivity" />
+        <activity android:name=".view.order.OrderAdditionalEditActivity" />
+        <activity android:name=".view.order.OrderIdentityActivity" />
+        <activity android:name=".view.order.OrderLogisticsEditActivity" />
+        <activity android:name=".view.order.OrderConsigneeEditActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".view.commodity.CommodityManageSingleActivity" />
+        <activity android:name=".view.subject.SubjectAddActivity" />
+        <activity android:name=".view.subject.SubjectClassifyActivity" />
+        <activity android:name=".view.subject.SubjectContentActivity" />
+        <activity android:name=".view.subject.SubjectCommodityAddActivity" />
+        <activity android:name=".view.freight.FreightSubjectListActivity" />
+        <activity android:name=".view.subject.SubjectBookActivity" />
+
+
+        <!--新浪微博-->
+        <activity
+            android:name="com.umeng.socialize.media.WBShareCallBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false"
+            >
+        </activity>
+        <activity android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            >
+
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:launchMode="singleTask"
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <!--新浪微博End-->
+
+        <!--QQ-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1108066958" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <!--QQ End-->
+
+        <activity android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".view.main.MineInformationActivity" />
+        <activity android:name=".view.main.MineSettingActivity" />
+        <activity android:name=".view.main.PasswordChangeActivity" />
+        <activity android:name=".view.main.AccountChangeActivity" />
+        <activity android:name=".view.commodity.CommoditySortActivity" />
+        <activity android:name=".view.order.PictureActivity" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5fa109fc45b2b751a922a2b0" >
+        </meta-data>
+
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="65af509a487cdf94bee5dea0bf6e01b0" />
+
+        <meta-data android:name="design_width" android:value="1080"/>
+        <meta-data android:name="design_height" android:value="1920"/>
+
+    </application>
+
+</manifest>

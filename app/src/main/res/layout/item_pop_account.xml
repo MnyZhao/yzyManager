@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.pop.ItemHomeAccountBean" />
+        <import type="android.view.View"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{item::onClickSelect}"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:padding="0.5dp"
+            android:background="@drawable/shape_head_bg"
+            tools:src="@mipmap/ic_launcher_round"
+            glideHead="@{item.strHead}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="殷志源中文首站"
+            android:text="@{item.strName}"
+            android:textColor="@color/black"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/iv_head"
+            app:layout_constraintTop_toTopOf="@id/iv_head"
+            app:layout_constraintBottom_toBottomOf="@id/iv_head"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="28dp"
+            android:src="@mipmap/ic_tick"
+            android:visibility="gone"
+            visible="@{item.isSelected()?View.VISIBLE:View.GONE}"
+            app:tint="@color/check"
+            app:layout_constraintTop_toTopOf="@id/iv_head"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_head"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.login.LoginViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="18dp"
+            android:includeFontPadding="false"
+            app:layout_constraintHeight_percent="0.23"
+            android:gravity="bottom"
+            android:text="@string/str_login_title"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="12dp"
+            android:src="@mipmap/ic_back_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_login"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="40dp"
+            tools:src="@drawable/ic_login_bt_check"
+            android:src="@{viewModel.isCanLogin()?@drawable/ic_login_bt_check:@drawable/ic_login_bt_uncheck}"
+            app:layout_constraintTop_toBottomOf="@id/et_code"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.idolmedia.yzymanager.widget.BoldEditText
+            android:id="@+id/et_account"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/str_hint_login_account"
+            android:text="@={viewModel.strAccount}"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/uncheck"
+            android:singleLine="true"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8.5dp"
+            android:paddingBottom="8.5dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.idolmedia.yzymanager.widget.BoldEditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/str_hint_login_password"
+            android:text="@={viewModel.strPassword}"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/uncheck"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:paddingStart="18dp"
+            android:paddingEnd="58dp"
+            android:paddingTop="8.5dp"
+            android:paddingBottom="8.5dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_account"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.idolmedia.yzymanager.widget.BoldEditText
+            android:id="@+id/et_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/str_hint_login_code"
+            android:text="@={viewModel.strCode}"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/uncheck"
+            android:singleLine="true"
+            android:maxLength="10"
+            android:paddingStart="18dp"
+            android:paddingEnd="138dp"
+            android:paddingTop="8.5dp"
+            android:paddingBottom="8.5dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_password"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:background="#BDBDBD"
+            app:layout_constraintStart_toStartOf="@id/et_account"
+            app:layout_constraintEnd_toEndOf="@id/et_account"
+            app:layout_constraintTop_toBottomOf="@id/et_account"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:background="#BDBDBD"
+            app:layout_constraintStart_toStartOf="@id/et_password"
+            app:layout_constraintEnd_toEndOf="@id/et_password"
+            app:layout_constraintTop_toBottomOf="@id/et_password"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="156dp"
+            android:background="#BDBDBD"
+            app:layout_constraintStart_toStartOf="@id/et_code"
+            app:layout_constraintEnd_toEndOf="@id/et_code"
+            app:layout_constraintTop_toBottomOf="@id/et_code"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="8dp"
+            android:layout_marginEnd="10dp"
+            android:src="@mipmap/ic_eye_black"
+            android:onClick="@{()->viewModel.onClickPassword(etPassword)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/et_password"
+            app:layout_constraintBottom_toBottomOf="@id/et_password"/>
+
+        <ImageView
+            android:id="@+id/iv_code"
+            android:layout_width="95dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="18dp"
+            android:scaleType="fitXY"
+            android:background="#999999"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/et_code"
+            app:layout_constraintBottom_toBottomOf="@id/et_code"/>
+
+        <ImageView
+            android:id="@+id/iv_qq"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:src="@mipmap/ic_login_qq"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_wx"/>
+
+        <ImageView
+            android:id="@+id/iv_wx"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@mipmap/ic_login_wx"
+            app:layout_constraintBottom_toBottomOf="@id/iv_qq"
+            app:layout_constraintStart_toEndOf="@id/iv_qq"
+            app:layout_constraintEnd_toStartOf="@id/iv_wb"/>
+
+        <ImageView
+            android:id="@+id/iv_wb"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="20dp"
+            android:src="@mipmap/ic_login_wb"
+            app:layout_constraintBottom_toBottomOf="@id/iv_qq"
+            app:layout_constraintStart_toEndOf="@id/iv_wx"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

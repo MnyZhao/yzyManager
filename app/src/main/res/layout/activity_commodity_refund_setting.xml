@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.CommodityRefundViewModel" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:animateLayoutChanges="true"
+        android:background="@color/bg_fa">
+
+        <include layout="@layout/include_title_bar"
+            app:titleBar="@{viewModel.titleBar}"/>
+
+        <include layout="@layout/item_commodity_add_switch"
+            android:layout_marginTop="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:item="@{viewModel.switchBean}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.visibleContent}"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:text="退款警告："/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@drawable/shape_gray_bg_5"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="12dp"
+                android:padding="10dp"
+                android:gravity="top"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:text="@={viewModel.strTitle}"
+                android:hint="请输入退款警告"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:text="退款原因："/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@drawable/shape_gray_bg_5"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="30dp"
+                android:padding="10dp"
+                android:gravity="top"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:text="@={viewModel.strContent}"
+                android:hint="请输入退款原因。多退款原因格式：原因1@@原因2"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_save"
+            android:layout_width="220dp"
+            android:layout_height="34dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/str_save"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_blue_bg_50"/>
+
+
+    </LinearLayout>
+</layout>

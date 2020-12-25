@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.order.ItemOrderDetailsFreightBean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+       <View
+           android:layout_width="1dp"
+           android:layout_height="0dp"
+           android:layout_marginStart="12dp"
+           android:background="#eeeeee"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:minHeight="42dp"
+            android:layout_marginStart="12dp"
+            android:gravity="center"
+            tools:text="韵达"
+            android:text="@{item.strName}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="#eeeeee"
+            app:layout_constraintStart_toEndOf="@id/tv_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_name_s"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            tools:text="YD"
+            android:text="@{item.strNameShort}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/tv_name"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_name"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="#eeeeee"
+            app:layout_constraintStart_toEndOf="@id/tv_name_s"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:text="@={item.strNumber}"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            tools:text="12764584658127645846581276458465812764584658"
+            android:background="@null"
+            app:layout_constraintStart_toEndOf="@id/tv_name_s"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="#eeeeee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="#eeeeee"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

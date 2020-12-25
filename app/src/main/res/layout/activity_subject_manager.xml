@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.subject.SubjectManagerViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_fa">
+
+        <include layout="@layout/include_title_bar"
+            android:id="@+id/title_bar"
+            app:titleBar="@{viewModel.titleBar}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_merge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_merge"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_merge"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingStart="13dp"
+            android:paddingEnd="30dp"
+            android:layout_marginStart="12dp"
+            android:gravity="center_vertical"
+            tools:text="@string/str_merge"
+            android:text="@{viewModel.strStatusMerge}"
+            android:textColor="@color/black"
+            android:onClick="@{()->viewModel.onClickMerge(tvMerge)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_bar"/>
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="14dp"
+            android:src="@mipmap/ic_down"
+            app:layout_constraintTop_toTopOf="@id/tv_merge"
+            app:layout_constraintEnd_toEndOf="@id/tv_merge"
+            app:layout_constraintBottom_toBottomOf="@id/tv_merge"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_shelves"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingStart="13dp"
+            android:paddingEnd="30dp"
+            android:layout_marginStart="14dp"
+            android:gravity="center_vertical"
+            tools:text="@string/str_shelves"
+            android:text="@{viewModel.strStatusUp}"
+            android:textColor="@color/black"
+            android:onClick="@{()->viewModel.onClickOperation(tvShelves)}"
+            app:layout_constraintTop_toTopOf="@id/tv_merge"
+            app:layout_constraintStart_toEndOf="@id/tv_merge"/>
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="14dp"
+            android:src="@mipmap/ic_down"
+            app:layout_constraintTop_toTopOf="@id/tv_shelves"
+            app:layout_constraintEnd_toEndOf="@id/tv_shelves"
+            app:layout_constraintBottom_toBottomOf="@id/tv_shelves"/>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/smart_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="1dp"
+            finishSmart="@{viewModel.finishRefresh}"
+            isEnableLoadMore="@{viewModel.isLoadMore()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_merge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                adapter="@{viewModel.adapter}"/>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#40000000"
+            android:visibility="gone"
+            visible="@{viewModel.visiblePopBg}"
+            app:layout_constraintStart_toStartOf="@id/smart_layout"
+            app:layout_constraintTop_toTopOf="@id/smart_layout"
+            app:layout_constraintEnd_toEndOf="@id/smart_layout"
+            app:layout_constraintBottom_toBottomOf="@id/smart_layout"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

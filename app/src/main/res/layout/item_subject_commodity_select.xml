@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.subject.ItemSubjectCommodityBean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="12dp"
+            glideAll="@{item.strImg}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="42dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:text="威神V专辑预售"
+            android:text="@{item.strName}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/iv_img"
+            app:layout_constraintTop_toTopOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="6dp"
+            tools:text="商品ID：1234323"
+            android:text="@{item.strId}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/iv_img"
+            app:layout_constraintBottom_toBottomOf="@id/iv_img"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="4dp"
+            android:padding="10dp"
+            android:onClick="@{item::onClickSelect}"
+            tools:src="@drawable/ic_car_check"
+            android:src="@{item.isCheck()?@drawable/ic_car_check:@drawable/ic_car_uncheck}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

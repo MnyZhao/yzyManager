@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="popModel"
+            type="com.idolmedia.yzymanager.base.BasePopViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_bg"
+            android:layout_width="250dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/shape_white_bg_5"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置排序位置"
+            android:layout_marginTop="17dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/et_sort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:hint="请设置排序位数"
+            android:text="@={popModel.title}"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:singleLine="true"
+            android:inputType="number"
+            android:background="@drawable/shape_line_gray"
+            app:layout_constraintStart_toStartOf="@id/view_bg"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="@id/view_bg"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="设置至"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/et_sort"
+            app:layout_constraintEnd_toStartOf="@id/et_sort"
+            app:layout_constraintBottom_toBottomOf="@id/et_sort"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="位"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/et_sort"
+            app:layout_constraintStart_toEndOf="@id/et_sort"
+            app:layout_constraintBottom_toBottomOf="@id/et_sort"/>
+
+        <TextView
+            android:id="@+id/tv_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            tools:text="当前商品位置为第134位"
+            android:text="@{popModel.content}"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:layout_marginTop="13dp"
+            app:layout_constraintTop_toBottomOf="@id/et_sort"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="@id/view_bg"
+            app:layout_constraintTop_toBottomOf="@id/tv_current"
+            app:layout_constraintEnd_toEndOf="@id/view_bg"/>
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="11dp"
+            android:gravity="center"
+            android:text="@string/str_dismiss"
+            android:textColor="@color/black"
+            android:onClick="@{popModel::onClickLeft}"
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            app:layout_constraintStart_toStartOf="@id/view_bg"
+            app:layout_constraintEnd_toStartOf="@id/tv_right"/>
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="11dp"
+            android:gravity="center"
+            android:text="@string/str_confirm"
+            android:textColor="@color/white"
+            android:onClick="@{popModel::onClickRight}"
+            android:background="@drawable/shape_blue_bg_right_bottom_5"
+            app:layout_constraintTop_toTopOf="@id/tv_left"
+            app:layout_constraintEnd_toEndOf="@id/view_bg"
+            app:layout_constraintStart_toEndOf="@id/tv_left"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

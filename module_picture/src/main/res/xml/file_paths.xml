@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <external-path
+            name="camera_photos"
+            path="" />
+        <root-path
+            name="camera_photos"
+            path="" />
+
+        <external-files-path name="umeng_cache" path="umeng_cache/"/>
+    </paths>
+</resources>

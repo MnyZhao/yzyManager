@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="popModel"
+            type="com.idolmedia.yzymanager.viewmodel.pop.PopOrderFilterTypeViewModel" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shape_white_bg_5">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="商品ID"
+            android:onClick="@{()->popModel.onClickType(0)}"
+            android:textColor="@{popModel.typeIndex==0?@color/check:@color/black}"
+            tools:textColor="@color/check"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="商品名称"
+            android:onClick="@{()->popModel.onClickType(1)}"
+            android:textColor="@{popModel.typeIndex==1?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="用户ID"
+            android:onClick="@{()->popModel.onClickType(2)}"
+            android:textColor="@{popModel.typeIndex==2?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="用户昵称"
+            android:onClick="@{()->popModel.onClickType(3)}"
+            android:textColor="@{popModel.typeIndex==3?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="用户账户"
+            android:onClick="@{()->popModel.onClickType(4)}"
+            android:textColor="@{popModel.typeIndex==4?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="收货人电话"
+            android:onClick="@{()->popModel.onClickType(5)}"
+            android:textColor="@{popModel.typeIndex==5?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="收货人姓名"
+            android:onClick="@{()->popModel.onClickType(6)}"
+            android:textColor="@{popModel.typeIndex==6?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="订单编号"
+            android:onClick="@{()->popModel.onClickType(7)}"
+            android:textColor="@{popModel.typeIndex==7?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="快递单号"
+            android:onClick="@{()->popModel.onClickType(8)}"
+            android:textColor="@{popModel.typeIndex==8?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="合并邮费专题ID"
+            android:onClick="@{()->popModel.onClickType(9)}"
+            android:textColor="@{popModel.typeIndex==9?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="popModel"
+            type="com.idolmedia.yzymanager.viewmodel.pop.PopCommodityViewModel" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/shape_white_bg_5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="全部审核"
+            android:onClick="@{()->popModel.onClickType(0)}"
+            android:textColor="@{popModel.typeIndex==0?@color/check:@color/black}"
+            tools:textColor="@color/check"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="审核中"
+            android:onClick="@{()->popModel.onClickType(1)}"
+            android:textColor="@{popModel.typeIndex==1?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="已撤销"
+            android:onClick="@{()->popModel.onClickType(2)}"
+            android:textColor="@{popModel.typeIndex==2?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="审核失败"
+            android:onClick="@{()->popModel.onClickType(3)}"
+            android:textColor="@{popModel.typeIndex==3?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+    </LinearLayout>
+</layout>

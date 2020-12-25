@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="popModel"
+            type="com.idolmedia.yzymanager.viewmodel.pop.PopInventoryViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_bg"
+            android:layout_width="250dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/shape_white_bg_5"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="减少库存"
+            android:layout_marginTop="17dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/et_sort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:text="@={popModel.strCount}"
+            android:textColor="@color/black"
+            android:hint="请设置减少件数"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:inputType="number"
+            android:background="@drawable/shape_line_gray"
+            app:layout_constraintStart_toStartOf="@id/view_bg"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="@id/view_bg"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="件"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/et_sort"
+            app:layout_constraintStart_toEndOf="@id/et_sort"
+            app:layout_constraintBottom_toBottomOf="@id/et_sort"/>
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="25dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="@id/view_bg"
+            app:layout_constraintTop_toBottomOf="@id/et_sort"
+            app:layout_constraintEnd_toEndOf="@id/view_bg"/>
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="11dp"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/black"
+            android:onClick="@{popModel::onClickLeft}"
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            app:layout_constraintStart_toStartOf="@id/view_bg"
+            app:layout_constraintEnd_toStartOf="@id/tv_right"/>
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="11dp"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:onClick="@{popModel::onClickRight}"
+            android:background="@drawable/shape_blue_bg_right_bottom_5"
+            app:layout_constraintTop_toTopOf="@id/tv_left"
+            app:layout_constraintEnd_toEndOf="@id/view_bg"
+            app:layout_constraintStart_toEndOf="@id/tv_left"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="titleBar"
+            type="com.idolmedia.yzymanager.viewmodel.TitleBarViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/title_bar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        backgroundColor="@{titleBar.backgroundColor}"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:id="@+id/iv_title_left"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/ic_back_black"
+            android:padding="12dp"
+            android:onClick="@{titleBar.onBackClick}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            tools:text="@string/app_name"
+            android:text="@{titleBar.barTitle}"
+            android:gravity="center"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="55dp"
+            android:lines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:minWidth="46dp"
+            tools:text="右边"
+            android:text="@{titleBar.rightStr}"
+            android:visibility="@{titleBar.rightStrVisible}"
+            android:onClick="@{titleBar.onRightClick}"
+            android:background="@drawable/ripple_white_bg_round_50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_title_right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            imageResource="@{titleBar.rightDrawable}"
+            android:visibility="@{titleBar.rightImgVisible}"
+            android:padding="12dp"
+            android:onClick="@{titleBar.onRightClick}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

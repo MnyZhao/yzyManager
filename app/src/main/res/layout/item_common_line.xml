@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.common.ItemLineBean" />
+    </data>
+    <View
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        backgroundColor="@{item.color}"
+        setHeight="@{item.height}"/>
+
+</layout>

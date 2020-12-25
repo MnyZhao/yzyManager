@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.freight.ItemFreightAddressAreaBean" />
+        <import type="android.view.View"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:onClick="@{item::onClickSelectArea}"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            tools:text="西南"
+            android:text="@{item.strName}"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="10dp"
+            android:layout_marginEnd="6dp"
+            visible="@{item.isChecked()?View.GONE:View.VISIBLE}"
+            android:src="@{item.isSelect()?@drawable/ic_car_check:@drawable/ic_car_uncheck}"
+            tools:src="@drawable/ic_car_check"/>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="10dp"
+            android:layout_marginEnd="6dp"
+            visible="@{item.isChecked()?View.VISIBLE:View.GONE}"
+            android:visibility="gone"
+            android:src="@drawable/ic_car_check_no"/>
+
+    </LinearLayout>
+</layout>

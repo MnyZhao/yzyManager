@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.MainViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_fa"
+        tools:context=".view.MainActivity">
+
+       <androidx.viewpager2.widget.ViewPager2
+           android:id="@+id/view_pager"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_marginBottom="1dp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintBottom_toTopOf="@id/view_bottom_bg"/>
+
+        <View
+            android:id="@+id/view_bottom_bg"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_home"
+            android:layout_width="52dp"
+            android:layout_height="22dp"
+            android:paddingBottom="2dp"
+            android:layout_marginTop="6.5dp"
+            tools:src="@drawable/ic_home_check"
+            android:src="@{viewModel.currentItem==0?@drawable/ic_home_check:@drawable/ic_home_uncheck}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_bottom_bg"
+            app:layout_constraintEnd_toStartOf="@id/iv_message"/>
+
+        <ImageView
+            android:id="@+id/iv_message"
+            android:layout_width="52dp"
+            android:layout_height="22dp"
+            android:paddingBottom="2dp"
+            tools:src="@drawable/ic_message_check"
+            android:src="@{viewModel.currentItem==1?@drawable/ic_message_check:@drawable/ic_message_uncheck}"
+            app:layout_constraintTop_toTopOf="@id/iv_home"
+            app:layout_constraintStart_toEndOf="@id/iv_home"
+            app:layout_constraintEnd_toStartOf="@id/iv_mine"/>
+
+        <View
+            android:id="@+id/view_message"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toTopOf="@id/iv_message"
+            app:layout_constraintEnd_toEndOf="@id/iv_message"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="12dp"
+            android:minWidth="12dp"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            visible="@{viewModel.visibleMessage}"
+            tools:text="99+"
+            android:text="@{viewModel.strMessageCount}"
+            android:textSize="9sp"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_red_bg"
+            app:layout_constraintStart_toStartOf="@id/view_message"
+            app:layout_constraintBottom_toBottomOf="@id/view_message"
+            app:layout_constraintEnd_toEndOf="@id/view_message"
+            app:layout_constraintTop_toTopOf="@id/view_message"/>
+
+        <ImageView
+            android:id="@+id/iv_mine"
+            android:layout_width="52dp"
+            android:layout_height="22dp"
+            android:paddingBottom="2dp"
+            tools:src="@drawable/ic_mine_check"
+            android:src="@{viewModel.currentItem==2?@drawable/ic_mine_check:@drawable/ic_mine_uncheck}"
+            app:layout_constraintStart_toEndOf="@id/iv_message"
+            app:layout_constraintTop_toTopOf="@id/iv_home"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_home"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/str_home"
+            android:textSize="12sp"
+            tools:textColor="@color/check"
+            android:textColor="@{viewModel.currentItem==0?@color/check:@color/uncheck}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/iv_home"
+            app:layout_constraintTop_toBottomOf="@id/iv_home"
+            app:layout_constraintEnd_toEndOf="@id/iv_home"
+            app:layout_constraintBottom_toBottomOf="@id/view_bottom_bg"/>
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/str_message"
+            android:textSize="12sp"
+            tools:textColor="@color/check"
+            android:textColor="@{viewModel.currentItem==1?@color/check:@color/uncheck}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/iv_message"
+            app:layout_constraintTop_toBottomOf="@id/iv_home"
+            app:layout_constraintEnd_toEndOf="@id/iv_message"
+            app:layout_constraintBottom_toBottomOf="@id/view_bottom_bg"/>
+
+        <TextView
+            android:id="@+id/tv_mine"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/str_mine"
+            android:textSize="12sp"
+            tools:textColor="@color/check"
+            android:textColor="@{viewModel.currentItem==2?@color/check:@color/uncheck}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/iv_mine"
+            app:layout_constraintTop_toBottomOf="@id/iv_home"
+            app:layout_constraintEnd_toEndOf="@id/iv_mine"
+            app:layout_constraintBottom_toBottomOf="@id/view_bottom_bg"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#40000000"
+            android:layout_marginTop="60dp"
+            android:visibility="gone"
+            visible="@{viewModel.visiblePopBg}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

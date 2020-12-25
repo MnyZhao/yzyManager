@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="popModel"
+            type="com.idolmedia.yzymanager.viewmodel.pop.PopSearchCommodityViewModel" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shape_white_bg_5">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="电子刊ID"
+            android:onClick="@{()->popModel.onClickType(0)}"
+            android:textColor="@{popModel.typeIndex==0?@color/check:@color/black}"
+            tools:textColor="@color/check"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="电子刊名称"
+            android:onClick="@{()->popModel.onClickType(1)}"
+            android:textColor="@{popModel.typeIndex==1?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+    </LinearLayout>
+</layout>

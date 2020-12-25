@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.ItemCommodityAddBean" />
+        <import type="android.view.View"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            tools:text="商品图片"
+            android:text="@{item.strTitle}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/iv_img"/>
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="45dp"
+            glideImg="@{item.strImg}"
+            android:onClick="@{item::onClickAddImg}"
+            android:background="@mipmap/ic_img_add_admin"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="8dp"
+            android:src="@mipmap/ic_delete_gray"
+            android:onClick="@{()->item.onClickDelete(ivImg)}"
+            android:visibility="gone"
+            visible="@{item.canDelete?View.VISIBLE:View.GONE}"
+            app:layout_constraintTop_toTopOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="@id/iv_img"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:includeFontPadding="false"
+            tools:text="(建议比例1:1)"
+            android:text="@{item.strImgTip}"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            app:layout_constraintStart_toStartOf="@id/iv_img"
+            app:layout_constraintTop_toBottomOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="@id/iv_img"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.ItemAuditAdminBean" />
+        <import type="android.view.View"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_commodity_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="15dp"
+            tools:text="商品ID：1234343"
+            android:text="@{item.strCommodityId}"
+            android:textColor="@color/black"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:padding="8dp"
+            android:src="@mipmap/ic_copy"
+            android:onClick="@{item::onClickCopyCommodity}"
+            app:layout_constraintStart_toEndOf="@id/tv_commodity_id"
+            app:layout_constraintTop_toTopOf="@id/tv_commodity_id"
+            app:layout_constraintBottom_toBottomOf="@id/tv_commodity_id"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            tools:text="普通商品"
+            android:text="@{item.strCommodityStatus}"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/tv_commodity_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_commodity_id"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_commodity_id"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="32dp"
+            tools:src="@mipmap/ic_launcher"
+            glideAll="@{item.strCommodityImg}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_commodity_id" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="威神V全新专辑威神V全新专辑威神V全新专辑威神V全新专辑"
+            android:text="@{item.strCommodityName}"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="5dp"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toEndOf="@id/iv_img"
+            app:layout_constraintTop_toTopOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_limit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="限购：6（不限购）"
+            android:text="@{item.strCommodityLimit}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintBottom_toTopOf="@id/tv_price"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="限购：6（不限购）"
+            android:text="@{item.strCommodityLimit}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintBottom_toTopOf="@id/tv_price"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="商品价格：￥299.0"
+            android:text="@{item.strCommodityPrice}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_limit"
+            app:layout_constraintBottom_toTopOf="@id/tv_shop_name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="合并专题ID：123342"
+            android:text="@{item.strSubjectId}"
+            app:layout_constraintTop_toTopOf="@id/tv_limit"
+            app:layout_constraintStart_toStartOf="@id/tv_sale"/>
+
+        <TextView
+            android:id="@+id/tv_sale"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="130dp"
+            android:textColor="@color/black"
+            tools:text="销量：23432343234"
+            android:text="@{item.strCommoditySales}"
+            android:gravity="center_vertical"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMaxTextSize="12sp"
+            app:autoSizeMinTextSize="6sp"
+            app:autoSizeStepGranularity="1sp"
+            app:layout_constraintTop_toTopOf="@id/tv_price"
+            app:layout_constraintBottom_toBottomOf="@id/tv_price"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_shop_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="商家信息：元气小铺"
+            android:text="@{item.strShopName}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_price"
+            app:layout_constraintBottom_toTopOf="@id/tv_shop_id"/>
+
+        <TextView
+            android:id="@+id/tv_shop_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="商家ID：1234343"
+            android:text="@{item.strShopId}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintBottom_toBottomOf="@id/iv_img"/>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:padding="8dp"
+            android:src="@mipmap/ic_copy"
+            android:onClick="@{item::onClickCopyShop}"
+            app:layout_constraintStart_toEndOf="@id/tv_shop_id"
+            app:layout_constraintTop_toTopOf="@id/tv_shop_id"
+            app:layout_constraintBottom_toBottomOf="@id/tv_shop_id"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginEnd="12dp"
+            android:visibility="gone"
+            visible="@{item.visibleRefuse}"
+            android:src="@mipmap/ic_audit_refuse"
+            app:layout_constraintTop_toTopOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_img"/>
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/line_color"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_audit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="审核"
+            android:textColor="@color/black"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view"/>
+
+        <TextView
+            android:id="@+id/tv_audit_passed"
+            android:layout_width="60dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="center"
+            android:text="通过审核"
+            android:textSize="12sp"
+            android:textColor="@color/check"
+            android:onClick="@{()->item.onClickAudit(tvAuditPassed,0)}"
+            android:background="@drawable/shape_line_blue_bg_5"
+            app:layout_constraintTop_toTopOf="@id/tv_audit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_audit"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="center"
+            android:text="拒绝审核"
+            android:textSize="12sp"
+            android:textColor="@color/check"
+            android:onClick="@{()->item.onClickAudit(tvAuditPassed,1)}"
+            android:visibility="gone"
+            visible="@{item.visibleAuditRefuse}"
+            android:background="@drawable/shape_line_blue_bg_5"
+            app:layout_constraintTop_toTopOf="@id/tv_audit"
+            app:layout_constraintEnd_toStartOf="@id/tv_audit_passed"
+            app:layout_constraintBottom_toBottomOf="@id/tv_audit"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

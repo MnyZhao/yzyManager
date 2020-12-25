@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.main.MineInformationViewModel" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/bg_fa">
+
+        <include layout="@layout/include_title_bar"
+            app:titleBar="@{viewModel.titleBar}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:onClick="@{viewModel::shopPhonePicker}"
+                android:text="@{viewModel.strAccountTip}"
+                tools:text="中国大陆+86"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:singleLine="true"
+                android:hint="@{viewModel.strAccountHint}"
+                android:text="@={viewModel.strAccount}"
+                tools:hint="请输入您的手机号"
+                android:background="@null"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="1dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:textColor="@color/black"
+                android:text="验证码"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:singleLine="true"
+                android:maxLength="10"
+                android:text="@={viewModel.strSmsCode}"
+                android:hint="请输入验证码"
+                android:background="@null"/>
+
+            <TextView
+                android:layout_width="78dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:text="@{viewModel.strSmsTime}"
+                backgroundDrawable="@{viewModel.smsBg}"
+                android:onClick="@{viewModel::onSmsCodeClick}"
+                tools:text="获取验证码"
+                tools:background="@drawable/shape_blue_bg_50"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_9"
+            android:textSize="12sp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            android:text="@{viewModel.strTip}"
+            tools:text="您当前绑定的手机号为：17600978545"/>
+
+    </LinearLayout>
+</layout>

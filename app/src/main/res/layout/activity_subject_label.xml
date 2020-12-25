@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.subject.SubjectLabelViewModel" />
+    </data>
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="@color/bg_fa">
+
+       <include layout="@layout/include_title_bar"
+           android:id="@+id/title_bar"
+           app:titleBar="@{viewModel.titleBar}"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:background="@color/white"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/title_bar"
+           app:layout_constraintEnd_toEndOf="parent">
+
+           <com.idolmedia.yzymanager.widget.BoldTextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="12dp"
+               android:layout_marginTop="14dp"
+               android:textColor="@color/black"
+               android:textSize="16sp"
+               android:text="已添加标签"/>
+
+           <com.zhy.view.flowlayout.TagFlowLayout
+               android:id="@+id/flow_layout"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="5dp"
+               android:layout_marginEnd="5dp"
+               android:layout_marginTop="5dp"/>
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="160dp"
+               android:layout_marginStart="12dp"
+               android:layout_marginEnd="12dp"
+               android:layout_marginTop="60dp"
+               android:maxLength="100"
+               android:padding="12dp"
+               android:textSize="14sp"
+               android:textColor="@color/black"
+               android:text="@={viewModel.strLabel}"
+               android:hint="请输入专题标签"
+               android:gravity="top"
+               android:background="@drawable/shape_grayfa_bg_5"/>
+
+           <com.idolmedia.yzymanager.widget.BoldTextView
+               android:id="@+id/tv_save"
+               android:layout_width="220dp"
+               android:layout_height="34dp"
+               android:layout_marginTop="16dp"
+               android:layout_marginBottom="40dp"
+               android:gravity="center"
+               android:background="@drawable/shape_blue_bg_50"
+               android:textColor="@color/white"
+               android:text="确认添加"
+               android:layout_gravity="center_horizontal"/>
+
+       </LinearLayout>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

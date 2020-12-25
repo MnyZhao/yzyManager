@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.main.ItemHomeBean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white">
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:includeFontPadding="false"
+            android:text="@string/str_other_manager"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/tv_dzf"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:paddingTop="18dp"
+            android:src="@mipmap/ic_zhuanti_guanli"
+            android:onClick="@{item::onClickSubjectManager}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_order"
+            app:layout_constraintEnd_toStartOf="@id/tv_dfh"/>
+
+        <ImageView
+            android:id="@+id/tv_dfh"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:paddingTop="18dp"
+            android:src="@mipmap/ic_add_blue"
+            android:onClick="@{item::onClickSubjectEdit}"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf"
+            app:layout_constraintStart_toEndOf="@id/tv_dzf"
+            app:layout_constraintEnd_toStartOf="@id/tv_dfwk"/>
+
+        <ImageView
+            android:id="@+id/tv_dfwk"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:paddingTop="18dp"
+            android:src="@mipmap/ic_yunfei_muban"
+            android:onClick="@{item::onClickSubjectFreightManage}"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf"
+            app:layout_constraintStart_toEndOf="@id/tv_dfh"
+            app:layout_constraintEnd_toStartOf="@id/tv_dtk"/>
+
+        <ImageView
+            android:id="@+id/tv_dtk"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:paddingTop="18dp"
+            android:src="@mipmap/ic_add_blue"
+            android:onClick="@{item::onClickSubjectFreightAdd}"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf"
+            app:layout_constraintStart_toEndOf="@id/tv_dfwk"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_dzf_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:minWidth="60dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/str_subject_manager"
+            android:onClick="@{item::onClickSubjectManager}"
+            app:layout_constraintStart_toStartOf="@id/tv_dzf"
+            app:layout_constraintEnd_toEndOf="@id/tv_dzf"
+            app:layout_constraintTop_toBottomOf="@id/tv_dzf"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:minWidth="60dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/str_add_subject"
+            android:onClick="@{item::onClickSubjectEdit}"
+            app:layout_constraintStart_toStartOf="@id/tv_dfh"
+            app:layout_constraintEnd_toEndOf="@id/tv_dfh"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf_tip"
+            app:layout_constraintBottom_toBottomOf="@id/tv_dzf_tip"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:minWidth="60dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/str_freight_template_manager"
+            android:onClick="@{item::onClickSubjectFreightManage}"
+            app:layout_constraintStart_toStartOf="@id/tv_dfwk"
+            app:layout_constraintEnd_toEndOf="@id/tv_dfwk"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf_tip"
+            app:layout_constraintBottom_toBottomOf="@id/tv_dzf_tip"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:minWidth="60dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/str_add_template"
+            android:onClick="@{item::onClickSubjectFreightAdd}"
+            app:layout_constraintStart_toStartOf="@id/tv_dtk"
+            app:layout_constraintEnd_toEndOf="@id/tv_dtk"
+            app:layout_constraintTop_toTopOf="@id/tv_dzf_tip"
+            app:layout_constraintBottom_toBottomOf="@id/tv_dzf_tip"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="popModel"
+            type="com.idolmedia.yzymanager.viewmodel.pop.PopCommodityViewModel" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/shape_white_bg_5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="全部类型"
+            android:onClick="@{()->popModel.onClickType(0)}"
+            android:textColor="@{popModel.typeIndex==0?@color/check:@color/black}"
+            tools:textColor="@color/check"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="普通商品"
+            android:onClick="@{()->popModel.onClickType(1)}"
+            android:textColor="@{popModel.typeIndex==1?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="定金商品"
+            android:onClick="@{()->popModel.onClickType(3)}"
+            android:textColor="@{popModel.typeIndex==3?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="应援商品"
+            android:onClick="@{()->popModel.onClickType(5)}"
+            android:textColor="@{popModel.typeIndex==5?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="全部VIP商品"
+            android:onClick="@{()->popModel.onClickType(7)}"
+            android:textColor="@{popModel.typeIndex==7?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="VIP-仅限会员购买"
+            android:onClick="@{()->popModel.onClickType(8)}"
+            android:textColor="@{popModel.typeIndex==8?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="VIP-皆可购买"
+            android:onClick="@{()->popModel.onClickType(9)}"
+            android:textColor="@{popModel.typeIndex==9?@color/check:@color/black}"
+            tools:textColor="@color/black"/>
+
+    </LinearLayout>
+</layout>

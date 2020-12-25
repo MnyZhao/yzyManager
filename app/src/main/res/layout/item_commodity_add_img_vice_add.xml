@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.ItemCommodityAddImgBean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{item::onClickAdd}">
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_add_gray"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toStartOf="@id/iv_img"
+            app:layout_constraintTop_toTopOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="@id/iv_img"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加副图"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="@id/iv_img"
+            app:layout_constraintTop_toBottomOf="@id/iv_add"
+            app:layout_constraintBottom_toBottomOf="@id/iv_img"/>
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@mipmap/ic_add_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

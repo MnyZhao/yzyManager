@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.subject.SubjectAddViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_fa">
+
+        <include layout="@layout/include_title_bar"
+            android:id="@+id/title_bar"
+            app:titleBar="@{viewModel.titleBar}"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="230dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_bar"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/shape_gray_bg_5"
+            android:padding="10dp"
+            android:gravity="top"
+            android:hint="请编辑专题内容"
+            android:text="@={viewModel.strContent}"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_bar"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_save"
+            android:layout_width="220dp"
+            android:layout_height="34dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:text="@string/str_save"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_blue_bg_50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

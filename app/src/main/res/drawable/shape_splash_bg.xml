@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <solid android:color="@color/bg_fa"/>
+        </shape>
+    </item>
+
+    <item android:top="150dp">
+        <bitmap android:src="@mipmap/ic_launch_text"
+                android:gravity="top"/>
+    </item>
+
+    <item >
+        <bitmap android:src="@mipmap/ic_launch_bottom"
+            android:gravity="bottom"/>
+    </item>
+
+</layer-list>

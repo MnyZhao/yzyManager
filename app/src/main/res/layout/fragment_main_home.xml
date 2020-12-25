@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idolmedia.yzymanager.viewmodel.main.MainHomeViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_fa">
+
+        <View
+            android:id="@+id/view_title"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="12dp"
+            android:padding="0.5dp"
+            android:background="@drawable/shape_head_bg"
+            tools:src="@mipmap/ic_launcher_round"
+            glideHead="@{viewModel.strHead}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/black"
+            android:text="@{viewModel.strName}"
+            android:gravity="center"
+            android:onClick="@{()->viewModel.onClickLogin(viewTitle)}"
+            app:layout_constraintStart_toEndOf="@id/iv_head"
+            app:layout_constraintTop_toTopOf="@id/iv_head"
+            app:layout_constraintBottom_toBottomOf="@id/iv_head"/>
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:padding="8dp"
+            android:src="@mipmap/ic_down"
+            android:onClick="@{()->viewModel.onClickLogin(viewTitle)}"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/tv_name"/>
+
+        <com.idolmedia.yzymanager.widget.BoldTextView
+            android:id="@+id/tv_system"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/str_gnxt"
+            android:text="@{viewModel.systemType==0?@string/str_gnxt:@string/str_hwxt}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/iv_system_switch"
+            app:layout_constraintBottom_toBottomOf="@id/iv_system_switch"
+            app:layout_constraintEnd_toStartOf="@id/iv_system_switch"/>
+
+        <ImageView
+            android:id="@+id/iv_system_switch"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="11dp"
+            android:src="@mipmap/ic_switch"
+            app:layout_constraintTop_toTopOf="@id/iv_head"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_head"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_head"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

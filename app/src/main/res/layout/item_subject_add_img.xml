@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.subject.ItemSubjectAddImageBean" />
+        <import type="android.view.View"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@color/white"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:text="专题封面图"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_face"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="48dp"
+            android:onClick="@{item::onClickMain}"
+            glideImg="@{item.strMainImg}"
+            android:background="@mipmap/ic_add_subject_face"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_head"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="8dp"
+            android:visibility="@{item.canDeleteMain?View.VISIBLE:View.GONE}"
+            android:onClick="@{()->item.onClickDeleteMain(ivFace)}"
+            android:src="@mipmap/ic_delete_gray"
+            app:layout_constraintTop_toTopOf="@id/iv_face"
+            app:layout_constraintEnd_toEndOf="@id/iv_face"/>
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:onClick="@{item::onClickHead}"
+            glideImg="@{item.strHeadImg}"
+            android:background="@mipmap/ic_add_subject_head"
+            app:layout_constraintStart_toEndOf="@id/iv_face"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_face"
+            app:layout_constraintBottom_toBottomOf="@id/iv_face"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="8dp"
+            android:visibility="@{item.canDeleteHead?View.VISIBLE:View.GONE}"
+            android:onClick="@{()->item.onClickDeleteFace(ivHead)}"
+            android:src="@mipmap/ic_delete_gray"
+            app:layout_constraintTop_toTopOf="@id/iv_head"
+            app:layout_constraintEnd_toEndOf="@id/iv_head"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(建议比例1:1.5)"
+            android:textSize="12sp"
+            android:textColor="@color/gray_9"
+            app:layout_constraintStart_toStartOf="@id/iv_face"
+            app:layout_constraintTop_toBottomOf="@id/iv_face"
+            app:layout_constraintEnd_toEndOf="@id/iv_face"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(建议比例1.5:1)"
+            android:textSize="12sp"
+            android:textColor="@color/gray_9"
+            app:layout_constraintStart_toStartOf="@id/iv_head"
+            app:layout_constraintTop_toBottomOf="@id/iv_face"
+            app:layout_constraintEnd_toEndOf="@id/iv_head"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

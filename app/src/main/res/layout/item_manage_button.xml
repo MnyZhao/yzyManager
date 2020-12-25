@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.commodity.ItemManageButtonBean" />
+    </data>
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:gravity="center"
+        android:textSize="12sp"
+        tools:text="更多"
+        android:text="@{item.strName}"
+        tools:textColor="@color/white"
+        android:textColor="@{item.isMore()?@color/white:@color/check}"
+        android:onClick="@{item::onItemClick}"
+        android:background="@{item.isMore()?@drawable/shape_blue_bg_5:@drawable/shape_line_blue_5}"
+        tools:background="@drawable/shape_blue_bg_5"/>
+</layout>

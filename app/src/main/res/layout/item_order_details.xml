@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.order.ItemOrderDetailsBean" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            tools:text="订单状态"
+            android:text="@{item.strTitle}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:gravity="end"
+            tools:text="已失效"
+            android:text="@{item.strContent}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_order_status"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_status"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="6dp"
+            android:visibility="invisible"
+            visible="@{item.visibleMore}"
+            android:src="@mipmap/ic_more"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="6dp"
+            android:onClick="@{item::onClickCopy}"
+            android:visibility="invisible"
+            tools:visibility="gone"
+            visible="@{item.visibleCopy}"
+            android:src="@mipmap/ic_copy"/>
+    </LinearLayout>
+</layout>

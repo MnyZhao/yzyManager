@@ -1,0 +1,4 @@
+include ':module_picture'
+include ':module_ucrop'
+include ':app'
+rootProject.name = "yzyManager"

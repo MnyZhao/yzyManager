@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.idolmedia.yzymanager.viewmodel.order.ItemOrderDetailsBean" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            tools:text="订单状态"
+            android:text="@{item.strTitle}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="14dp"
+            android:layout_marginStart="12dp"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:imeOptions="actionDone"
+            tools:text="已失效"
+            android:hint="@{item.strHint}"
+            android:text="@={item.strContent}"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:background="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_order_status"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_status"/>
+
+    </LinearLayout>
+</layout>
